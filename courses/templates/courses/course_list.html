@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cursos Disponíveis</title>
+</head>
+<body>
+    <h1>Cursos Disponíveis</h1>
+
+    {% if user.is_authenticated %}
+        <p>Olá, {{ user.username }}! Que ótimo tê-lo de volta.</p>
+    {% else %}
+        <p>Faça <a href="{% url 'login' %}">login</a> ou <a href="{% url 'register' %}">registre-se</a> para acessar os cursos.</p>
+    {% endif %}
+
+    <hr>
+
+    {% for course in courses %}
+<div>
+    <h2><a href="{% url 'course_detail' pk=course.pk %}">{{ course.title }}</a></h2>
+    <p>{{ course.description }}</p>
+</div>
+<hr>
+{% empty %}
+    <p>Nenhum curso disponível no momento.</p>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Gitignore for Django projects
+
+# Virtual environment folder
+venv/
+
+# Database file
+*.sqlite3
+
+# Django secret key (crucial!)
+# (This is in your settings.py. Never commit this.)
+# A melhor prática é usar variáveis de ambiente, mas por agora, vamos apenas ignorar o arquivo.
+# local_settings.py
+
+# Ignore Python specific files
+__pycache__/
+.env
